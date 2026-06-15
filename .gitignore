@@ -1,0 +1,21 @@
+# UE build / cache output — never commit
+**/Saved/
+**/Intermediate/
+**/DerivedDataCache/
+**/Binaries/
+**/Build/
+
+# OS / editor cruft
+.DS_Store
+Thumbs.db
+*.swp
+*~
+.vscode/
+
+# Local workshop bundle (cooked artifacts go elsewhere, not in git)
+**/StagedBuilds/
+**/Cooked/
+
+# Live Steam Workshop vdf (committed template has publishedfileid=0;
+# the local copy may contain the real ID after upload)
+**/workshop/*.live.vdf

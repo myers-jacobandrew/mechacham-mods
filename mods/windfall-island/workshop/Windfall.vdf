@@ -1,0 +1,11 @@
+"workshopitem"
+{
+	"appid"		"4704690"
+	"publishedfileid"		"0"
+	"contentfolder"		"C:\\Steamworkshop\\Windfall"
+	"previewfile"		"C:\\Steamworkshop\\Windfall\\Preview.png"
+	"visibility"		"2"
+	"title"		"Windfall Island"
+	"description"		"My first MechaCham custom map! Windfall Island from The Legend of Zelda: The Wind Waker.\n\nCredits:\n- Nintendo (original game)\n- Peardian and TwilightRipper (model rip, from The Models Resource)\n\nv1 known issue: windmill is missing - will be added in a future update. Feedback welcome!"
+	"changenote"		"Init"
+}

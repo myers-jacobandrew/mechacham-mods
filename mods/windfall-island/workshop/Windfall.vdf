@@ -26,5 +26,5 @@ Feel free to contribute instead!
 Guide to set up modding: [url=https://docs.google.com/document/d/1zlUQIVTHxSTJm-OXH2WIfEjv95T4bwv4NFx5nQOSAyo/edit?tab=t.0]MecchaChameleonCustomModManual[/url]
 
 This mod's repo: [url=https://github.com/myers-jacobandrew/mechacham-mods]github.com/myers-jacobandrew/mechacham-mods[/url]"
-	"changenote"		"v1.0.5 - add background music"
+	"changenote"		"v1.0.6 - actually fix music (spatialization off), remove leftover spawn marker"
 }

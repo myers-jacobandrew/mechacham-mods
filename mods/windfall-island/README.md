@@ -1,35 +1,37 @@
 # Windfall Island
 
-Windfall Island from *The Legend of Zelda: The Wind Waker*, as a Meccha Chameleon custom map.
+Windfall Island from *The Legend of Zelda: The Wind Waker*, as a custom Meccha Chameleon map.
 
-**[Steam Workshop link](https://steamcommunity.com/sharedfiles/filedetails/?id=3745643656)**
+[Steam Workshop link](https://steamcommunity.com/sharedfiles/filedetails/?id=3745643656)
 
-## Status
+## status
 
-v1 published. Known issues:
+v1 is up. known issues:
 
-- **Windmill missing.** The MMD (.pmx) source used for this version only includes the central island; the windmill is a separate prop in the original game model and didn't import. v2 will add it (import the [Models Resource model](https://models.spriters-resource.com/gamecube/thelegendofzeldathewindwaker/asset/313489/) which has it as a separate .obj part).
-- Some texture/material wiring is approximate (only base color, no normals/specular maps).
+- windmill is missing (it's a separate `.obj` in the source bundle, didn't bring it in for v1). maybe a future update.
+- materials are just base color, no normals or specular.
 
-## Credits
+## credits
 
-- Nintendo — original game
-- Peardian and TwilightRipper — model rip ([The Models Resource](https://models.spriters-resource.com/gamecube/thelegendofzeldathewindwaker/asset/313489/))
+- Nintendo (original game)
+- Peardian and TwilightRipper, model rip from [The Models Resource](https://models.spriters-resource.com/gamecube/thelegendofzeldathewindwaker/asset/313489/)
 
-## Build pipeline
+## source
 
-This mod was built from a MikuMikuDance `.pmx` rip using:
+Model bundle from [The Models Resource](https://models.spriters-resource.com/gamecube/thelegendofzeldathewindwaker/asset/313489/). It's a zip with `.obj` / `.dae` / `.mtl` plus PNG textures.
 
-1. `tools/pmx_to_fbx.py` — convert PMX to FBX in Blender (mmd_tools), dump material→texture manifest to `tools/windfall_material_textures.json`
-2. UE import: FBX as Static Mesh (Force All Mesh as Type → Static Mesh), Bake Meshes ✅, Vertex Color Replace
-3. Manually drag-import 30 PNG textures into UE (FBX importer dropped most of mmd_tools's texture refs)
-4. `tools/wire_materials.py` (run from UE Python console) — reads the manifest, wires each Texture to its Material's Base Color slot
-5. Place the static mesh actor in the level, add WaterBodyOcean + WaterZone for the ocean, set up SkyAtmosphere + DirectionalLight + SkyLight
-6. Cook + package per [`docs/BUILD.md`](../../docs/BUILD.md)
+## how it was built
 
-## Level details
+1. download + extract the Models Resource zip.
+2. drag the main island `.obj` into the UE Content Browser. UE imports OBJ natively as a Static Mesh.
+3. drag the PNGs into the same folder. UE imports them as Textures.
+4. wire textures into the material Base Color slots. either manually, or via `tools/wire_materials.py` with a hand-written manifest.
+5. place the static mesh in the level. add WaterBodyOcean + WaterZone for the ocean. SkyAtmosphere + DirectionalLight + SkyLight for lighting. drop a flat plane under sea level so you don't see through the transparent water into the void.
+6. cook + package per [`docs/BUILD.md`](../../docs/BUILD.md).
 
-- PlayerStart at (0, 0, 100) per modkit spec
-- WaterBodyOcean with bounded spline ~around the island
-- A flat ground plane sits underneath as the "missing seafloor" (the Water plugin's water is transparent at grazing angles, and without a seafloor mesh you see straight through into the void)
-- Camera collision profile: `CameraBlockWall` on island geometry
+## level details
+
+- PlayerStart at (0, 0, 100) per modkit spec.
+- WaterBodyOcean spline around the island.
+- flat plane below water as a seafloor backdrop.
+- camera collision profile: `CameraBlockWall` on island geometry.

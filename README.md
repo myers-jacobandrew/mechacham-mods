@@ -1,47 +1,45 @@
 # mechacham-mods
 
-Custom maps for [Meccha Chameleon](https://store.steampowered.com/), packaged via the MecchaChameleon Custom Mod Kit and published to Steam Workshop.
+My custom maps for Meccha Chameleon. Built with the MecchaChameleon Custom Mod Kit, uploaded to Steam Workshop.
 
-## Mods
+## mods
 
-| Mod | Workshop | Status |
+| mod | workshop | status |
 |---|---|---|
-| [Windfall Island](mods/windfall-island/) | [Workshop link](https://steamcommunity.com/sharedfiles/filedetails/?id=3745643656) | v1 — windmill missing, see notes |
+| [Windfall Island](mods/windfall-island/) | [link](https://steamcommunity.com/sharedfiles/filedetails/?id=3745643656) | v1, windmill missing |
 
-## Repo layout
+## layout
 
 ```
 .
-├── docs/                       # general build / cook / upload workflow
-│   └── BUILD.md
-├── tools/                      # shared conversion tooling
-│   ├── pmx_to_fbx.py           # PMX (MikuMikuDance) -> FBX via Blender + mmd_tools
-│   ├── wire_materials.py       # UE Python script: bulk-wire textures into materials
-│   └── *_material_textures.json # per-mod material -> texture manifests
+├── docs/
+│   └── BUILD.md                # cook / package / upload workflow
+├── tools/                      # shared scripts
+│   ├── pmx_to_fbx.py           # convert MMD .pmx to .fbx via Blender + mmd_tools
+│   ├── wire_materials.py       # UE Python: wire textures into materials from a json manifest
+│   └── *_material_textures.json
 ├── mods/
 │   └── <mod-name>/
-│       ├── README.md           # mod-specific notes / known issues
+│       ├── README.md           # per-mod notes, credits, source
 │       ├── Plugins/<Mod>/      # UE plugin source (Content + Resources + .uplugin)
-│       └── workshop/<Mod>.vdf  # Steam Workshop upload manifest (committed with publishedfileid=0)
-└── LICENSE                     # MIT
+│       └── workshop/<Mod>.vdf  # workshop upload manifest (publishedfileid=0 in repo)
+└── LICENSE
 ```
 
-## Adding a new mod
+## adding a new mod
 
-1. Make a UE plugin under `MecchaCModKit_Load/Plugins/<ModName>/` (Edit → Plugins → Add → Content Only).
-2. Build the level inside the plugin's `Content/Maps/`.
-3. When ready, cook + package per `docs/BUILD.md`.
-4. Copy the plugin source (`Content/`, `Resources/`, `*.uplugin`) into a new `mods/<mod-name>/Plugins/<ModName>/` here, commit.
+1. New plugin in `MecchaCModKit_Load/Plugins/<ModName>/` (Edit > Plugins > Add > Content Only).
+2. Build the level in `Content/Maps/`.
+3. Cook + package per [`docs/BUILD.md`](docs/BUILD.md).
+4. Copy `Content/`, `Resources/`, and the `.uplugin` into a new `mods/<mod-name>/Plugins/<ModName>/` here. Commit.
 
-## Tooling
+## tools
 
-- `tools/pmx_to_fbx.py` — converts a `.pmx` MikuMikuDance model to `.fbx` with sibling textures and a `material_textures.json` manifest. Requires Blender 5.0+ with [mmd_tools](https://github.com/MMD-Blender/blender_mmd_tools).
-- `tools/wire_materials.py` — UE editor Python script. After bulk-importing the PNGs, this script reads the manifest and assigns each texture to its material's Base Color slot. Works around UE's FBX importer dropping most texture references from mmd_tools-produced FBX.
+- `tools/pmx_to_fbx.py`: takes a `.pmx` MikuMikuDance model, runs it through Blender + [mmd_tools](https://github.com/MMD-Blender/blender_mmd_tools), spits out a `.fbx` plus a json manifest of which material uses which texture. Useful if your source is MMD. Not used for Windfall (that one used .obj from Models Resource).
+- `tools/wire_materials.py`: UE editor Python script. Reads the json manifest and assigns each PNG texture to the matching material's Base Color slot. Handy when UE's importer drops material refs.
 
-See `docs/BUILD.md` for the full pipeline.
+## license
 
-## License
+MIT. See [LICENSE](LICENSE).
 
-MIT (see [LICENSE](LICENSE)).
-
-Game assets in `mods/*/Plugins/*/Content/` are derived from third-party fan rips of original game data and are credited per-mod in each mod's README.
+Game assets under `mods/*/Plugins/*/Content/` come from fan rips of game data. Credits are in each mod's README.

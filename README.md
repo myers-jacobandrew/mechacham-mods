@@ -7,6 +7,7 @@ My custom maps for Meccha Chameleon. Built with the MecchaChameleon Custom Mod K
 | mod | workshop | status |
 |---|---|---|
 | [Windfall Island](mods/windfall-island/) | [link](https://steamcommunity.com/sharedfiles/filedetails/?id=3745643656) | v1, windmill missing |
+| [Grove Street](mods/grove-street/) | [link](https://steamcommunity.com/sharedfiles/filedetails/?id=3745770286) | v1, void around the map |
 
 ## layout
 

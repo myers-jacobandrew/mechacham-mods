@@ -1,0 +1,24 @@
+"workshopitem"
+{
+	"appid"		"4704690"
+	"publishedfileid"		"0"
+	"contentfolder"		"C:\\Steamworkshop\\GroveStreet"
+	"previewfile"		"C:\\Steamworkshop\\GroveStreet\\Preview.png"
+	"visibility"		"0"
+	"title"		"Grove Street"
+	"description"		"second MechaCham custom map. Grove Street from GTA: San Andreas.
+
+follow the damn truck cj
+
+heads up:
+- map might be a bit big
+- giant void around the neighborhood, ignore it. might box it in later
+- this is rough, expect jank
+
+Credits:
+- Rockstar Games (original game)
+- [url=https://sketchfab.com/3d-models/gtasa--grove-street-v2-e778c61799434ccdad0a1963a11aeb7e]paltoandr7 (Sketchfab, CC Attribution)[/url] for the GTASA Grove Street v2 model
+
+This mod's repo: [url=https://github.com/myers-jacobandrew/mechacham-mods]github.com/myers-jacobandrew/mechacham-mods[/url]"
+	"changenote"		"v1.0.1 - add proper attribution"
+}

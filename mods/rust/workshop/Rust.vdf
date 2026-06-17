@@ -1,0 +1,22 @@
+"workshopitem"
+{
+	"appid"		"4704690"
+	"publishedfileid"		"0"
+	"contentfolder"		"C:\\Steamworkshop\\Rust"
+	"previewfile"		"C:\\Steamworkshop\\Rust\\Preview.jpg"
+	"visibility"		"2"
+	"title"		"Rust - MW2"
+	"description"		"Rust from Call of Duty: Modern Warfare 2 (2009).
+
+third MechaCham custom map.
+
+heads up:
+- a couple slots use best-guess stand-in textures
+- expect some jank
+
+Credits:
+- Infinity Ward / Activision (original game)
+
+This mod's repo: [url=https://github.com/myers-jacobandrew/mechacham-mods]github.com/myers-jacobandrew/mechacham-mods[/url]"
+	"changenote"		"v1.0.7 - description cleanup"
+}
